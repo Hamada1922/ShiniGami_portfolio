@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShiniGami_Dashboard</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <!--  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <!--  -->
+</head>
+
+<body class="dashboard">
+  <div class="logo">
+    <img class="logo_image" src="imgs/shinigami_black_logo.webp" alt="logo">
+    <span class="logo_text">ShiniGami</span>
+  </div>
+  <!-- PORTFOLIO -->
+  <section class="portfolio_control">
+    <div class="container">
+      <div class="heading">
+        <h2 class="title">Portfolio</h2>
+        <p class="para">
+          control the projects and designs in your portfolio
+        </p>
+      </div>
+      <form method="POST" enctype="multipart/form-data">
+        <div class="group_head">
+          <label class="image_label" for="image">Upload Image</label>
+          <input type="file" name="image" id="image" hidden>
+          <input type="text" name="link" id="link" placeholder="Design Link">
+        </div>
+        <strong>Categories</strong>
+        <div class="checkboxes">
+          <div class="group">
+            <label for="cat_1">Landing page</label>
+            <input type="checkbox" name="cat_1" id="cat_1" value="lp">
+          </div>
+          <div class="group">
+            <label for="cat_2">Design</label>
+            <input type="checkbox" name="cat_2" id="cat_2" value="design">
+          </div>
+          <div class="group">
+            <label for="cat_3">Portfolio</label>
+            <input type="checkbox" name="cat_3" id="cat_3" value="portfolio">
+          </div>
+        </div>
+        <button type="submit" name="upload">Create</button>
+      </form>
+  </section>
+  <!-- FACTS -->
+  <section class="facts_control">
+    <div class="container">
+      <div class="heading">
+        <h2 class="title">Facts</h2>
+        <p class="para">
+          control the statistics in your portfolio
+        </p>
+      </div>
+      <form method="POST">
+        <input type="number" name="client" placeholder="Number Happy Client">
+        <input type="number" name="project" placeholder="Number Completed Projects">
+        <input type="number" name="design" placeholder="Number Designs">
+        <input type="number" name="experience" placeholder="Number experience years">
+        <button type="submit" name="update">update</button>
+      </form>
+  </section>
+  </div>
+</body>
+
+</html>
+<?php
+$conn = new mysqli('localhost', 'root', '', 'shinigami');
+if (isset($_POST['upload'])) {
+  $link = $_POST['link'];
+  $categories = "";
+  if (isset($_POST['cat_1'])) {
+    $categories = $categories  . $_POST['cat_1'] . " ";
+  }
+  if (isset($_POST['cat_2'])) {
+    $categories = $categories  . $_POST['cat_2'] . " ";
+  }
+  if (isset($_POST['cat_3'])) {
+    $categories = $categories  . $_POST['cat_3'];
+  }
+  $image_name = basename($_FILES['image']['name']);
+  $image_name = $_FILES['image']['name'];
+  $temp_name = $_FILES['image']['tmp_name'];
+  $path = "./imgs/designs/" . $image_name;
+  if (move_uploaded_file($temp_name, $path)) {
+    $conn->query("INSERT INTO portfolio (path, categories, link) VALUES ('$image_name', '$categories', '$link')");
+  }
+}
+if (isset($_POST['update'])) {
+  $client = $_POST['client'];
+  $project = $_POST['project'];
+  $design = $_POST['design'];
+  $experience = $_POST['experience'];
+  $conn->query("UPDATE facts SET client = '$client', project = $project, design = '$design', experience = '$experience' WHERE id = 1");
+}
+?>

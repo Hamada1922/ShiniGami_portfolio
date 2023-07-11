@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="scss, css, frontend, design, website" />
+  <meta name="description" content="design website with css extension language scss" />
+  <title>ShiniGami</title>
+  <link rel="icon" href="imgs/shinigami_white_logo.webp" />
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <!--  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <!--  -->
+</head>
+<!-- <?php
+$conn = new mysqli('localhost', 'root', '', 'shinigami');
+$arr = $conn->query("SELECT * FROM facts WHERE id = 1");
+$facts = mysqli_fetch_array($arr);
+?> -->
+
+<body class="dark">
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img class="logo_image" src="imgs/shinigami_white_logo.webp" alt="logo">
+        <span class="logo_text">ShiniGami</span>
+      </div>
+      <span class="toggler">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+  </header>
+  <!-- SIDEBAR -->
+  <section class="sidebar">
+    <div class="profile">
+      <img class="lazy" data-src="imgs/shinigami_profile.webp" alt="profile picture">
+      <span class="name">Hamada Yasser</span>
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=100094498812160" target="_blank"><i
+            class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://twitter.com/S7iniG3mi" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://wa.link/tfnx46" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <ul class="main_menu">
+      <li><i class="fa-solid fa-house"></i><a href="#">Home</a></li>
+      <li><i class="fa-solid fa-user"></i><a href="#about">About</a></li>
+      <li><i class="fa-solid fa-user"></i><a href="#facts">Facts</a></li>
+      <li><i class="fa-solid fa-user"></i><a href="#skills">Skills</a></li>
+      <li><i class="fa-solid fa-user"></i><a href="#portfolio">Portfolio</a></li>
+      <li><i class="fa-solid fa-envelope"></i><a href="#services">Services</a></li>
+      <li><i class="fa-solid fa-envelope"></i><a href="#features">Features</a></li>
+      <li>
+        <hr>
+      </li>
+      <li>
+        <i class="fa-solid fa-globe"></i>
+        <select name="languages" id="languages">
+          <option value="english">English</option>
+          <option value="arabic">Arabic</option>
+        </select>
+      </li>
+      <li>
+        <button class="mood_btn" name="mood_btn">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </li>
+    </ul>
+  </section>
+  <!-- ABOVE -->
+  <section class="above">
+    <div class="overlay"></div>
+    <div class="container">
+      <h1>ShiniGami</h1>
+      <p>I am <span class="word"></span></p>
+    </div>
+  </section>
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="heading">
+        <h2 class="title">About</h2>
+        <p class="para">Yo, i am hamada yasser Kamal (ShiniGami), and you will be my special client</p>
+      </div>
+      <div class="content">
+        <img class="lazy" data-src="imgs/shinigami_about.webp" alt="about_shinigami">
+        <div class="text">
+          <h3>Fullstack Web Developer</h3>
+          <p class="intro">To get to Know who i am better, The following points are a good start</p>
+          <div class="info">
+            <ul>
+              <li><strong>Birthday:</strong><span>19 feb 2001</span></li>
+              <li><strong>Age:</strong><span>22 year</span></li>
+              <li><strong>City:</strong><span>Assuit / Egypt</span></li>
+              <li><strong>Hobbies:</strong><span>online marketer, content writer</span></li>
+              <li><strong>Governmental job:</strong><span>Nursing specialist</span></li>
+            </ul>
+            <ul>
+              <li><strong>real & favorite job:</strong><span>Web designer and developer</span></li>
+              <li><strong>Degree:</strong><span>Bachelor</span></li>
+              <li><strong>Freelancing:</strong><span>Available</span></li>
+              <li><strong>Email:</strong><span>s7inigami@gmail.com</span></li>
+              <li><strong>Phone:</strong><span>(+20)1018008316</span></li>
+            </ul>
+          </div>
+          <p class="end">In fact, I did not learn web programming ant the university or even through a private or paid
+            courses, but rather through self-education from open and free sources, and this is what i am proud of, and
+            you can judge me after see my previous and upcoming projects</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FACTS -->
+  <section class="facts" id="facts">
+    <div class="container">
+      <div class="heading">
+        <h2 class="title">Facts</h2>
+        <p class="para">
+          It's known that statistics give a comprehensive, clear and accurate description about general condition of
+          business,
+          in case it was real, so here are some of them
+        </p>
+      </div>
+      <div class="boxes">
+        <div class="box">
+          <i class="fa-regular fa-face-smile-beam"></i>
+          <strong class="number">
+            <?php echo $facts['client'] ?>
+          </strong>
+          <span class="desc">Happy Client</span>
+        </div>
+        <div class="box">
+          <i class="fa-solid fa-diagram-project"></i>
+          <strong class="number">
+            <?php echo $facts['project'] ?>
+          </strong>
+          <span class="desc">project</span>
+        </div>
+        <div class="box">
+          <i class="fa-solid fa-pen-nib"></i>
+          <strong class="number">
+            <?php echo $facts['design'] ?>
+          </strong>
+          <span class="desc">project Design</span>
+        </div>
+        <div class="box">
+          <i class="fa-solid fa-person-cane"></i>
+          <strong class="number">
+            <?php echo $facts['experience'] ?>
+          </strong>
+          <span class="desc">year of experience</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="heading">
+        <h2 class="title">Skills</h2>
+        <p class="para">
+          There are many programming languages and frameworks in field of web development, And the following is what i
+          will use in your own project
+        </p>
+      </div>
+      <div class="slider">
+        <div class="inner_slider">
+          <div class="skill">
+            <strong>HTML</strong>
+            <div class="progress_bar html" data-progress="0%" data-max="95%">
+              <progress min="0" max="100" value="0"></progress>
+            </div>
+          </div>
+          <div class="skill">
+            <strong>CSS</strong>
+            <div class="progress_bar css" data-progress="0%" data-max="90%">
+              <progress min="0" max="100" value="0"></progress>
+            </div>
+          </div>
+          <div class="skill">
+            <strong>JavaScript</strong>
+            <div class="progress_bar javascript" data-progress="0%" data-max="80%">
+              <progress min="0" max="100" value="0"></progress>
+            </div>
+          </div>
+          <div class="skill">
+            <strong>PHP</strong>
+            <div class="progress_bar php" data-progress="0%" data-max="50%">
+              <progress min="0" max="100" value="0"></progress>
+            </div>
+          </div>
+          <div class="skill">
+            <strong>SCSS</strong>
+            <div class="progress_bar scss" data-progress="0%" data-max="100%">
+              <progress min="0" max="100" value="0"></progress>
+            </div>
+          </div>
+          <div class="skill">
+            <strong>Vue</strong>
+            <div class="progress_bar vue" data-progress="0%" data-max="60%">
+              <progress min="0" max="100" value="0"></progress>
+            </div>
+          </div>
+          <div class="skill">
+            <strong>Laravel</strong>
+            <div class="progress_bar laravel" data-progress="0%" data-max="60%">
+              <progress min="0" max="100" value="0"></progress>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PORTFOLIO -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="heading">
+        <h2 class="title">Portfolio</h2>
+        <p class="para">
+          It is said that a picture speaks a thousand words, Let alone real projects designed and implemented in
+          addition to those pictures, So that you can judge me a little more correctly, But the final judgement is when
+          you become my client, I am wait for that
+        </p>
+      </div>
+      <div class="content">
+        <ul class="menu">
+          <li data-cat="all" class="active">All</li>
+          <li data-cat="design">Designs</li>
+          <li data-cat="lp">Landing Pages</li>
+          <li data-cat="portfolio">portfolio</li>
+        </ul>
+        <span class="zoom_out hidden">x</span>
+        <div class="projects">
+          <!-- <?php
+          $designs = $conn->query("SELECT * FROM portfolio");
+          foreach ($designs as $design) {
+            echo " -->
+          <div class='project all $design[categories]'>
+            <img class='lazy' data-src='imgs/designs/$design[path]' alt='$design[path]'>
+            <div class='opers'>
+              <i class='pro_zoom fa-solid fa-magnifying-glass-plus'></i>
+              <a href='$design[link]'><i class='fa-solid fa-link'></i></a>
+            </div>
+          </div>
+          ";
+          <!-- } -->
+          <!-- ?> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="heading">
+        <h2 class="title">Services</h2>
+        <p class="para">
+          Now that you know who i am, And have seen my previous projects and designs, it is turn of the services that i
+          can
+          provide to you at the present time
+        </p>
+      </div>
+      <div class="content">
+        <div class="service">
+          <div class="head">
+            <i class="fa-solid fa-magnet"></i>
+            <!-- <i class="fa-solid fa-plane-arrival"></i> -->
+            <span>Landing Page</span>
+          </div>
+          <div class="info"><button class="details_btn">Details</button></div>
+          <p class="details hidden">
+            Create landing page to: <br>1_ increase referral to you site<br>2_ promote a product or service<br>3_
+            increase number
+            of
+            emails in your mailing list
+          </p>
+        </div>
+        <div class="service">
+          <div class="head">
+            <!-- <i class="fa-regular fa-id-badge"></i> -->
+            <i class="fa-regular fa-address-card"></i>
+            <span>Portfolio</span>
+          </div>
+          <div class="info"><button class="details_btn">Details</button></div>
+          <p class="details hidden">
+            It is your online CV to display your work and qualifications so that the clients and companies know who you
+            are and what you are able to do, like this site you are in now
+          </p>
+        </div>
+        <div class="service">
+          <div class="head">
+            <i class="fa-solid fa-handshake-angle"></i>
+            <span>Service website</span>
+          </div>
+          <div class="info"><button class="details_btn">Details</button></div>
+          <p class="details hidden">
+            Get your website that implement your idea, supports your project, And deliver your services to your
+            customers, In a way that suits this era
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="heading">
+        <h2 class="title">Features</h2>
+        <p class="para">
+          Our services come with many great features that are suitable for nature of you business and your idea
+        </p>
+      </div>
+      <div class="content">
+        <div class="text">
+          <h3>Your website will be:</h3>
+          <ul class="list">
+            <li class="active"><span>1</span>
+              <p>Responsive to all screen sizes</p>
+            </li>
+            <li><span>2</span>
+              <p>Clean code that is easy to read, modify and develop on it</p>
+            </li>
+            <li><span>3</span>
+              <p>Code and files are small in size to increase the speed of loading and browsing</p>
+            </li>
+            <li><span>4</span>
+              <p>multi languages website</p>
+            </li>
+            <li><span>5</span>
+              <p>It can created from PSD, XD, figma, sketch, photo or idea design</p>
+            </li>
+            <li><span>6</span>
+              <p>Dark and light mood</p>
+            </li>
+          </ul>
+        </div>
+        <div class="images">
+          <img class="lazy active" data-src="imgs/feature_1.svg" alt="feature">
+          <img class="lazy" data-src="imgs/feature_2.svg" alt="feature">
+          <img class="lazy" data-src="imgs/feature_3.svg" alt="feature">
+          <img class="lazy" data-src="imgs/feature_4.svg" alt="feature">
+          <img class="lazy" data-src="imgs/feature_5.svg" alt="feature">
+          <img class="lazy" data-src="imgs/feature_6.svg" alt="feature">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="social">
+        <a href="https://www.facebook.com/profile.php?id=100094498812160" target="_blank"><i
+            class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://twitter.com/S7iniG3mi" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://wa.link/tfnx46" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <p class="copyrights">created by <strong>ShiniGami</strong> &copy; 2023</p>
+    </div>
+  </footer>
+  <!-- UP -->
+  <a class="up hidden" href="#"><i class="fa-solid fa-arrow-up"></i></a>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
